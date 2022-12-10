@@ -6,10 +6,10 @@ export const Statistics = ({ title, stats}) => {
   <h2 className={title}>{title}</h2>
         <ul className={css.stat_list}>
 
-            {stats.map(stat => (
-              <li className={css.item} key = {stat.id}>
-                    <span className={css.label}>{stat.label}</span>
-                    <span className={css.percentage}>{stat.percentage}</span>
+            {stats.map(({id, label, percentage}) => (
+              <li className={css.item} key = {id}>
+                    <span className={css.label}>{label}</span>
+                    <span className={css.percentage}>{percentage}</span>
     </li>    
             ))}
   </ul>
@@ -17,5 +17,22 @@ export const Statistics = ({ title, stats}) => {
 }
 
 Statistics.propTypes = {
-    title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  stats: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    label: PropTypes.string.isRequired,
+    percentage:PropTypes.number.isRequired
+  }))
 };
+
+
+// Friendlist.propTypes = {
+//     friends: PropTypes.arrayOf(
+//         PropTypes.shape({
+//             id: PropTypes.number.isRequired,
+//             avatar: PropTypes.string.isRequired,
+//             name: PropTypes.string.isRequired,
+//             isOnline: PropTypes.bool.isRequired,
+//         })
+//     ),
+// }
