@@ -2,7 +2,7 @@ import css from "./TransactionHistory.module.css";
 import PropTypes from "prop-types";
 
 export const TransactionHistory = ({ items }) => {
-    return <table className={css.transaction_history}>
+    return <table className={css.transactionHistory}>
         <thead>
             <tr>
                 <th>Type</th>
@@ -11,8 +11,8 @@ export const TransactionHistory = ({ items }) => {
             </tr>
         </thead>
 
-        {items.map(item => <tbody key={item.id}>
-            <tr>
+        {items.map((item) => <tbody key={item.id}>
+            <tr className={css.row}>
                 <td>{item.type}</td>
                 <td>{item.amount}</td>
                 <td>{item.currency}</td>
@@ -22,7 +22,7 @@ export const TransactionHistory = ({ items }) => {
 };
 
 TransactionHistory.propTypes = {
-  transactions: PropTypes.arrayOf(
+  items: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       type: PropTypes.string.isRequired,
