@@ -1,17 +1,17 @@
-import css from "./Statistics.module.css";
+import styles from "./Statistics.module.css";
 import PropTypes from "prop-types";
 
 export const Statistics = ({ title, stats}) => {
-    return <section className={css.statistics}>
-  <h2 className={css.title}>{title}</h2>
-        <ul className={css.statList}>
+    return <section className={styles.statistics}>
+      {title && <h2 className={styles.title}>{title}</h2>}
+        <ul className={styles.statList}>
 
             {stats.map(({id, label, percentage}) => (
-              <li className={css.item} key={id} style={{
+              <li className={styles.item} key={id} style={{
                 backgroundColor: `#${Math.floor(Math.random() * 16777215).toString(16)}`
               }}>
-                    <span className={css.label}>{label}</span>
-                    <span className={css.percentage}>{percentage}%</span>
+                    <span className={styles.label}>{label}</span>
+                    <span className={styles.percentage}>{percentage}%</span>
     </li>    
             ))}
   </ul>
@@ -28,13 +28,3 @@ Statistics.propTypes = {
 };
 
 
-// Friendlist.propTypes = {
-//     friends: PropTypes.arrayOf(
-//         PropTypes.shape({
-//             id: PropTypes.number.isRequired,
-//             avatar: PropTypes.string.isRequired,
-//             name: PropTypes.string.isRequired,
-//             isOnline: PropTypes.bool.isRequired,
-//         })
-//     ),
-// }
